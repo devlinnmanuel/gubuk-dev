@@ -46,7 +46,7 @@
 
 @media (min-width: 992px) {
   .myiframe {
-    height: 400px !important;
+    height: 300px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }

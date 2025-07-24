@@ -65,7 +65,7 @@ iframe.live {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   iframe.live {
     padding-left: 2.8rem !important;
     padding-right: 2.8rem !important;

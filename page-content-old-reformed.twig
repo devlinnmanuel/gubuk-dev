@@ -1,0 +1,364 @@
+{#
+/**
+ * @file
+ * Template for page-content component.
+ *
+ * Available config:
+ * - page_header_container_type: sm | md | lg | xl | xxl | fluid.
+ * - page_header_container_utility_classes: An array of utility classes.
+ * - page_content_container_type: sm | md | lg | xl | xxl | fluid | false | true.
+ * - page_content_container_utility_classes: An array of utility classes.
+ * - page_main_utility_classes: An array of utility classes.
+ *
+ * Available blocks:
+ * - page_header
+ * - page_inner_content
+ */
+#}
+{% set page_header_container_attributes = page_header_container_attributes ?: create_attribute() %}
+{% set page_content_container_attributes = page_content_container_attributes ?: create_attribute() %}
+
+{% 
+  set page_main_classes = []|merge(page_main_utility_classes ?: []) 
+%}
+
+{% set header_container_class = '' %}
+{% if page_header_container_type is null %}
+  {% set header_container_class = 'w-100 d-flex justify-content-center' %}
+{% elseif page_header_container_type is not empty %}
+  {% set header_container_class = 'container-' ~ page_header_container_type %}
+{% endif %}
+{%
+  set page_header_container_classes = [
+    header_container_class,
+  ]|merge(page_header_container_utility_classes ?: [])
+%}
+
+{% set content_container_class = '' %}
+{% if page_content_container_type is null %}
+  {% set content_container_class = 'container' %}
+{% elseif page_content_container_type is not empty %}
+  {% set content_container_class = 'container-' ~ page_content_container_type %}
+{% endif %}
+{%
+  set page_content_container_classes = [
+    content_container_class
+  ]|merge(page_content_container_utility_classes ?: [])
+%}
+
+<main{{content_attributes.addClass(page_main_classes)}}>
+  {% if page.header %}
+    <header class="page__header p-0 m-0">
+      <div {{ page_header_container_attributes.addClass(page_header_container_classes) }}>
+        {% block page_header %}
+          {{ page.header }}
+        {% endblock %}
+      </div>
+    </header>
+  {% endif %}
+
+  <div class="homepage-wrapper container py-3">
+    <div class="row">
+      <aside class="col-0 d-none">
+        {% if page.sidebar_first %}
+          {{ page.sidebar_first }}
+        {% endif %}
+      </aside>
+
+      <div class="col-md-9">
+        {% if page.content %}
+          <div class="page__content" id="main-content">
+            <div {{ page_content_container_attributes.addClass(page_content_container_classes) }}>
+              {% block page_inner_content %}
+                {{ page.content }}
+              {% endblock %}
+            </div>
+          </div>
+        {% endif %}
+
+        {# artikel terbaru tidak muncul di tentang kami, partisipasi, event #}
+        {% if current_node_id in [477] %}
+        <div class="container mt-5">
+          <h2 class="mb-5 text-primary">Kategori Teologia Utama</h2>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0 hover-shadow">
+                <div class="card-body text-center">
+                  <div class="icon-circle mb-2 mx-auto">
+                    <img  src="/sabda_reformed/files/biblika.png" alt="biblika" class="icon-popup">
+                  </div>
+                  <h5 class="mt-3 card-title text-primary">Teologia Biblika</h5>
+                  <p class="card-text text-muted">Teologia eksegetis yang berurusan dengan penelahaan naskah alkitabiah (PL/PB) dan alat-alat untuk menafsirnya.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                  <a href="/sabda_reformed/views_biblika" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0 hover-shadow">
+                <div class="card-body text-center">
+                  <div class="icon-circle mb-2 mx-auto">
+                    <img src="/sabda_reformed/files/sistematika.png" alt="sistematika" class="icon-popup">
+                  </div>
+                  <h5 class="mt-3 card-title text-primary">Teologia Sistematika</h5>
+                  <p class="card-text text-muted">Teologia yang disusun berdasarkan penataan doktrin-doktrin iman Kristen secara sistematis dan logis.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                  <a href="/sabda_reformed/views_sistematika" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0 hover-shadow">
+                <div class="card-body text-center">
+                  <div class="icon-circle mb-2 mx-auto">
+                    <img src="/sabda_reformed/files/praktika.png" alt="praktika" class="icon-popup">
+                  </div>
+                  <h5 class="mt-3 card-title text-primary">Teologia Praktika</h5>
+                  <p class="card-text text-muted pb-3">Teologia yang berisi penerapan pengajaran Alkitab dalam kehidupan praktis untuk pembangunan, pengudusan, pembinaan, pendidikan dan pelayanan umat Tuhan.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                  <a href="/sabda_reformed/views_praktika" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0 hover-shadow">
+                <div class="card-body text-center">
+                  <div class="icon-circle mb-2 mx-auto">
+                    <img src="/sabda_reformed/files/historika.png" alt="historika" class="icon-popup">
+                  </div>
+                  <h5 class="mt-3 card-title text-primary">Teologia Historika</h5>
+                  <p class="card-text text-muted">Teologia yang dilihat menurut sejarah umat Allah dan Alkitab serta gereja sejak zaman Kristus.</p>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                  <a href="/sabda_reformed/views_historika" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="new-px">
+          {# Artikel Preview (horizontal scroll / carousel) #}
+          <section class="new-py">
+            <h2 class="mb-5 text-primary">Artikel Terbaru</h2>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-outline-danger" id="prev-article">&lt;</button>
+
+              <div class="d-flex overflow-hidden w-100 position-relative" id="article-carousel">
+                {% for node in latest_articles %}
+                  {% if node != 'Event' %}
+                    <div class="card p-3 me-3 flex-shrink-0 card-hover" style="width: 300px;">
+                      <h5 class="article-title"><a href="{{ path('entity.node.canonical', {'node': node.id()}) }}">{{ node.getTitle() }}</a></h5>
+                      {# {{ dump(node) }} #}
+                      <p>{{ node.field_isi_artikel.value|striptags|slice(0, 150) ~ '...' }}</p>
+
+                      <small class="text-muted">{{ node.getCreatedTime()|date("d M Y") }}</small>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <button class="btn btn-outline-danger" id="next-article">&gt;</button>
+            </div>
+          </section>
+        </div>
+
+        <div class="container">
+          <h2 class="mb-5 text-primary">Literatur Reformed</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="custom-card p-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="icon-circle-buku">
+                    <img src="/sabda_reformed/files/gereja.png" alt="gereja-reformed" class="icon-popup">
+                  </div>
+                  <h5 class="fw-bold m-0">
+                    <a href="/sabda_reformed/gerakan_reformed_injili_apa_dan_mengapa" class="custom-link">
+                      Gerakan Reformed Injili: Apa? dan Mengapa?
+                    </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="custom-card p-4 h-100">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="icon-circle-buku">
+                    <img src="/sabda_reformed/files/dokumen.png" alt="dokumen" class="icon-popup">
+                  </div>
+                  <h5 class="fw-bold m-0">
+                    <a href="/sabda_reformed/enam_belas_dokumen_dasar_calvinisme" class="custom-link">
+                      Enam Belas Dokumen Dasar Calvinisme
+                    </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <aside class="col-md-3 pt-5 d-block">
+        {% if page.sidebar_second %}
+          {{ page.sidebar_second }}
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</main>
+
+
+<style>
+
+#article-carousel {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-hover {
+  border: 1px solid #ddd;
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: Indianred;
+  color: white;
+}
+
+.card-hover:hover .article-title a {
+  color: #FFDE21 !important;
+  transition: color 0.3s ease;
+}
+
+.new-px {
+  padding-left: 10px;
+  padding-right: 60px;
+}
+
+.new-py {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+a.new-link-color {
+  color: var(--text-dark);
+}
+
+img.icon-popup {
+  width: 40px;
+  height: auto;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 10px auto;
+}
+
+.card:hover .icon-circle img.icon-popup {
+  width: 70px; /* Membesar saat hover */
+}
+
+.card-body {
+  text-align: center;
+  transition: padding 0.3s ease;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+
+
+.custom-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-card:hover {
+  background-color: var(--bs-primary);
+}
+
+.custom-link {
+  text-decoration: none;
+  color: var(--bs-primary);
+  transition: color 0.3s ease;
+}
+
+.custom-link:hover {
+  text-decoration: underline !important;
+  color: #FFDE21 !important;
+}
+
+.custom-card:hover .custom-link {
+  color: white;
+}
+
+
+
+.icon-circle {
+  width: 75px;
+  height: 75px;
+  background-color: var(--bs-primary); /* Bootstrap primary */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover .icon-circle {
+  width: 70px;
+  height: 70px;
+}
+
+.icon-circle-buku {
+  width: 75px;
+  height: 75px;
+  background-color: var(--bs-primary); /* Bootstrap primary */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.custom-card:hover div .icon-circle-buku img.icon-popup {
+  width: 70px; /* Membesar saat hover */
+}
+
+.custom-card:hover div .icon-circle-buku {
+  width: 70px;
+  height: 70px;
+  background-color: var(--bs-light);
+}
+
+</style>
+
+
+<script>
+  const carousel = document.getElementById('article-carousel');
+  const prevBtn = document.getElementById('prev-article');
+  const nextBtn = document.getElementById('next-article');
+
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -320, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: 320, behavior: 'smooth' });
+  });
+
+</script>

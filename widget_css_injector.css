@@ -1,13 +1,13 @@
 .myiframe {
   width: 100%;
   border-style: none;
-  height:300px;
+	height:300px;
   padding-left: 3.4rem;
   padding-right: 3.4rem;
 }
 
 .myiframe body {
-   text-align: center;
+	text-align: center;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -39,16 +39,16 @@
 @media (min-width: 768px) {
   .myiframe {
     height: 400px !important;
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
 @media (min-width: 992px) {
   .myiframe {
     height: 300px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
   }
 }
 

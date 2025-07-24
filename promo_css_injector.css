@@ -1,0 +1,73 @@
+iframe.live {
+  width: 100%;
+  border-style: none;
+  overflow: hidden;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+/* Default height untuk layar sangat kecil (misal < 320px) */
+iframe.live {
+  height: 920px !important;
+}
+/* ≥ 320px */
+@media (min-width: 320px) {
+  iframe.live {
+    height: 1000px !important;
+  }
+}
+/* ≥ 375px */
+@media (min-width: 375px) {
+  iframe.live {
+    height: 1070px !important;
+  }
+}
+/* ≥ 425px */
+@media (min-width: 425px) {
+  iframe.live {
+    height: 1300px !important;
+  }
+}
+/* ≥ 576px */
+@media (min-width: 576px) {
+  iframe.live {
+    height: 1250px !important;
+  }
+}
+/* ≥ 768px */
+@media (min-width: 768px) {
+  iframe.live {
+    height: 1080px !important;
+    padding-left: 0 !important;
+  	padding-right: 0 !important;
+  }
+}
+/* ≥ 992px */
+@media (min-width: 992px) {
+  iframe.live {
+    height: 950px !important;
+  }
+}
+/* ≥ 1200px */
+@media (min-width: 1200px) {
+  iframe.live {
+    height: 900px !important;
+    padding-left: 1.5rem !important;
+  	padding-right: 1.5rem !important;
+  }
+}
+/* ≥ 1400px */
+@media (min-width: 1400px) {
+  iframe.live {
+    height: 940px !important;
+    padding-left: 3rem !important;
+  	padding-right: 3rem !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  iframe.live {
+    padding-left: 2.8rem !important;
+    padding-right: 2.8rem !important;
+  }
+}

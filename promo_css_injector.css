@@ -37,14 +37,16 @@ iframe.live {
 @media (min-width: 768px) {
   iframe.live {
     height: 1080px !important;
-    padding-left: 0.5rem !important;
-  	padding-right: 0.5rem !important;
+    padding-left: 0 !important;
+  	padding-right: 0 !important;
   }
 }
 /* ≥ 992px */
 @media (min-width: 992px) {
   iframe.live {
     height: 950px !important;
+    padding-left: 0.5rem !important;
+  	padding-right: 0.5rem !important;
   }
 }
 /* ≥ 1200px */

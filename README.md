@@ -1,3 +1,3 @@
 # gubuk-dev 
 
-footer.html : isi dari footer (content > block > footer)
+**_footer.html_** : isi dari footer (content > block > footer)

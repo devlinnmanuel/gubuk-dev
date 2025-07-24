@@ -7,7 +7,7 @@
 }
 
 .myiframe body {
-	text-align: center;
+   text-align: center;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -39,8 +39,8 @@
 @media (min-width: 768px) {
   .myiframe {
     height: 400px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
 }
 

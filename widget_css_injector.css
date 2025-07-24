@@ -52,6 +52,14 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .myiframe {
+    height: 300px !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
 @media (min-width: 1400px) {
   .myiframe {
     height: 300px !important;

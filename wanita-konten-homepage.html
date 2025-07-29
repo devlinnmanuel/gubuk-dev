@@ -1,10 +1,10 @@
 <div class="mt-5">
   <h2 class="mb-4 text-primary fw-bold">Konten Pilihan</h2>
-  <div class="container mb-5">
-    <div class="row g-4">
+  <div class="container new-container mb-5">
+    <div class="row g-4 align-items-stretch">
   
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card text-white custom-hover-card text-center">
+      <div class="col-12 col-md-6 col-lg-3 h-100">
+        <div class="card text-white custom-hover-card text-center h-100">
           <div class="card-img-wrapper">
             <img src="/wanita/sites/default/files/artikel.jpg" class="card-img" alt="Artikel">
             <div class="card-overlay"></div>
@@ -18,8 +18,8 @@
         </div>
       </div>
   
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card text-white custom-hover-card text-center">
+      <div class="col-12 col-md-6 col-lg-3 h-100">
+        <div class="card text-white custom-hover-card text-center h-100">
           <div class="card-img-wrapper">
             <img src="/wanita/sites/default/files/renungan.jpg" class="card-img" alt="Renungan">
             <div class="card-overlay"></div>
@@ -33,8 +33,8 @@
         </div>
       </div>
   
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card text-white custom-hover-card text-center">
+      <div class="col-12 col-md-6 col-lg-3 h-100">
+        <div class="card text-white custom-hover-card text-center h-100">
           <div class="card-img-wrapper">
             <img src="/wanita/sites/default/files/biografi.jpg" class="card-img" alt="Inspirasi Tokoh">
             <div class="card-overlay"></div>
@@ -48,8 +48,8 @@
         </div>
       </div>
   
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card text-white custom-hover-card text-center">
+      <div class="col-12 col-md-6 col-lg-3 h-100">
+        <div class="card text-white custom-hover-card text-center h-100">
           <div class="card-img-wrapper">
             <img src="/wanita/sites/default/files/tips.jpg" class="card-img" alt="Tips">
             <div class="card-overlay"></div>
@@ -69,12 +69,20 @@
 
 
 
+.new-container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .custom-hover-card {
   border: none;
   border-radius: 1rem;
   overflow: hidden;
   transition: transform 0.1s ease;
   position: relative;
+  height: 100%; /* Tambahkan ini agar card isi penuh parent */
+  display: flex;
+  flex-direction: column;
 }
 
 .card-img-wrapper {
@@ -110,7 +118,10 @@
   position: relative;
   z-index: 2;
   padding: 1rem;
-  height: 100%;
+  flex-grow: 1; /* Penuhi ruang tersisa */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .custom-hover-card:hover {
